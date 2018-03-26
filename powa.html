@@ -39,6 +39,37 @@
 				return true;
 			}
 		}
+		function cekWarna()
+		{
+			var warna=document.getElementById("warna");
+			var input=document.getElementById("color").value;
+			warna.style.color = "#"+input;
+		}
+	</script>
+	<script>
+		$( document ).on( "click", ".show-page-loading-msg", function() {
+			var $this = $( this ),
+			theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+			msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+			textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+			textonly = !!$this.jqmData( "textonly" );
+			html = $this.jqmData( "html" ) || "";
+			$.mobile.loading( "show", {
+				text: msgText,
+				textVisible: textVisible,
+				theme: theme,
+				textonly: textonly,
+				html: html
+			});
+		})
+		.on( "click", ".hide-page-loading-msg", function() {
+			$.mobile.loading( "hide" );
+		});
+	</script>
+	<script id="panel-init">
+		$(function() {
+			$( "body>[data-role='panel']" ).panel();
+		});
 	</script>
 	<title>Test 1</title>
 </head>
@@ -61,6 +92,7 @@
 						<span id="hexad" >Hexadecimal</span>
 						<br>
 						<span id="biner" >Biner</span>
+						<button class="show-page-loading-msg" data-textonly="true" data-textvisible="true" data-msgtext="Text only loader" data-inline="true">Text only</button>
 					</div>
 				</form>
 			</div>
@@ -76,9 +108,13 @@
 			<div data-role=content>
 				<form method="get">
 					<div data-role="fieldcontain">
-						<input type="text" name="color" id="color" value="" onkeyup = "cekWarna()"/>
+						<input type="text" name="color" id="color" value="" placeholder = "ffffff" onkeyup = "cekWarna()"/>
 						<br>
-						<span id="warna" style="width: 20px;height: 20px;color: #ffffff"></span>
+						<input type="text" id="warna" style="font-size:20px" value="Color Here">
+						<form>
+							<label for="slider-1">Slider:</label>
+							<input type="range" name="slider-1" id="slider-1" min="0" max="100" value="50">
+						</form>
 					</div>
 				</form>
 			</div>
@@ -92,10 +128,48 @@
 				</ul>	
 			</div>
 			<div data-role=content>
-				
+				<div class="rwd-example">
+					<!-- Lead story block -->
+					<div class="ui-block-a">
+						<div class="ui-body ui-body-d">
+							<h2>Week 1 - Technology</h2>
+							<ul data-role="listview">
+								<li>Mobile Phone Evolution from 1G to 5G</li>
+								<li>Internet</li>
+								<li>More and more mobile user in the world, over 52% share of web traffic by device</li>
+								<li>Pemograman Mobile</li>
+								<li>Android </li><li>Ios</li><li>Windows Phone</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
-		</div>
-
+			<!-- secondary story block #1 -->
+			<div class="ui-block-b">
+				<div class="ui-body ui-body-d">
+					<h2>Week 2 - Github</h2>
+					<p>GitHub is a web-based hosting service for version control using git. It is mostly used for computer code.
+					</p>
+					<p>It offers all of the distributed version control and source code management functionality of Git as well as adding its own features.
+					</p>
+				</div>
+			</div>
+			<!-- secondary story block #2 -->
+			<div class="ui-block-c">
+				<div class="ui-body ui-body-d">
+					<h2>Week 3 - Jquery Mobile</h2>
+					<p>A Touch-Optimized Web Framework.
+					</p>
+					<p>jQuery Mobile is a HTML5-based user interface system designed to make responsive web sites and apps that are accessible on all smartphone, tablet and desktop devices.
+					</p>
+				</div>
+			</div>
+		</div><!-- /rwd-example -->
+		<a href="#leftpanel3" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-mini">Overlay</a>
+		<button href="leftpanel3">left</button>
 	</div>
+</div>
+
+</div>
 </body>
 </html>
