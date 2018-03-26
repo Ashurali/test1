@@ -8,23 +8,36 @@
 	<script src=jmobile/jquery.mobile-1.4.5.js></script>
 	<script src=jmobile/jquery.mobile-1.4.5.min.js></script>
 	<script type-"text/javascript">
-		function link(e) {
-			var x=""
-			msgbox(e)
-			if (e==1)
+		function cekDecimal()
+		{
+			var num1 = parseInt(document.getElementsByName('decimal')[0].value);
+			var spanah = document.getElementById("numvalid1");
+			var res1 = document.getElementById("hexad");
+			var res2 = document.getElementById("biner");
+			
+			if(Number.isInteger(num1)===false)
 			{
-				x="first"
+				spanah.innerHTML = " Number not valid";
+				spanah.style.color = "red";
+				res1.innerHTML="Hexadecimal"
+				res2.innerHTML="Biner"
+				return false;
 			}
-			else if (e==2)
+			else
 			{
-				x="second"
+				spanah.innerHTML = "";
+				num = num1;
+				var bin = [];
+				while (num > 0) {
+					bin.unshift(num % 2);
+					num >>= 1;
+				}
+				hexa = num1.toString(16);
+				alert(hexa)
+				res1.innerHtml = hexa;
+				res2.innerHTML = "Biner : " + bin.join("");
+				return true;
 			}
-			else if(e==3)
-			{
-				x="third"
-			}
-			window.location.href="#"+x;
-
 		}
 	</script>
 	<title>Test 1</title>
@@ -40,8 +53,16 @@
 				</ul>	
 			</div>
 			<div data-role=content>
-				<p> Window content1</p>
-				<a href=#second> test </a>
+				<form method="get">
+					<div data-role="fieldcontain">
+						<input type="text" name="decimal" id="decimal" value="" placeholder="decimal" onkeyup = "cekDecimal()"/>
+						<span id = "numvalid1"></span><br>
+						<br>
+						<span id="hexad" >Hexadecimal</span>
+						<br>
+						<span id="biner" >Biner</span>
+					</div>
+				</form>
 			</div>
 		</div>
 		<div data-role=page id=second>
@@ -53,8 +74,13 @@
 				</ul>	
 			</div>
 			<div data-role=content>
-				<p> Window content2</p>
-				<a href=#second> test </a>
+				<form method="get">
+					<div data-role="fieldcontain">
+						<input type="text" name="color" id="color" value="" onkeyup = "cekWarna()"/>
+						<br>
+						<span id="warna" style="width: 20px;height: 20px;color: #ffffff"></span>
+					</div>
+				</form>
 			</div>
 		</div>
 		<div data-role=page id=third>
@@ -66,8 +92,7 @@
 				</ul>	
 			</div>
 			<div data-role=content>
-				<p> Window content3</p>
-				<a href=#second> test </a>
+				
 			</div>
 		</div>
 
