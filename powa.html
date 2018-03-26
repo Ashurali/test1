@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,
+	initial-scale=1">
+	<link rel=stylesheet href=jmobile/jquery.mobile-1.4.5.css />
+	<script src=jmobile/demos/js/jquery.js></script>
+	<script src=jmobile/jquery.mobile-1.4.5.js></script>
+	<script src=jmobile/jquery.mobile-1.4.5.min.js></script>
+	<script type-"text/javascript">
+		function link(e) {
+			var x=""
+			msgbox(e)
+			if (e==1)
+			{
+				x="first"
+			}
+			else if (e==2)
+			{
+				x="second"
+			}
+			else if(e==3)
+			{
+				x="third"
+			}
+			window.location.href="#"+x;
+
+		}
+	</script>
+	<title>Test 1</title>
+</head>
+<body>
+	<div data-role="tabs" id="tabs">
+		<div data-role=page id=first>
+			<div data-role=navbar>
+				<ul>
+					<li><a href="#first" data-theme=a data-ajax="false">First</a></li>
+					<li><a href="#second" data-theme=a data-ajax="false">Second</a></li>
+					<li><a href="#third" data-theme=a data-ajax="false">Third</a></li>
+				</ul>	
+			</div>
+			<div data-role=content>
+				<p> Window content1</p>
+				<a href=#second> test </a>
+			</div>
+		</div>
+		<div data-role=page id=second>
+			<div data-role=navbar>
+				<ul>
+					<li><a href="#first" data-theme=a data-ajax="false">First</a></li>
+					<li><a href="#second" data-theme=a data-ajax="false">Second</a></li>
+					<li><a href="#third" data-theme=a data-ajax="false">Third</a></li>
+				</ul>	
+			</div>
+			<div data-role=content>
+				<p> Window content2</p>
+				<a href=#second> test </a>
+			</div>
+		</div>
+		<div data-role=page id=third>
+			<div data-role=navbar>
+				<ul>
+					<li><a href="#first" data-theme=a data-ajax="false">First</a></li>
+					<li><a href="#second" data-theme=a data-ajax="false">Second</a></li>
+					<li><a href="#third" data-theme=a data-ajax="false">Third</a></li>
+				</ul>	
+			</div>
+			<div data-role=content>
+				<p> Window content3</p>
+				<a href=#second> test </a>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
